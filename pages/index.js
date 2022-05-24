@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex flex-row flex-nowrap  ">
           <div>
             <h1 className="font-bold text-5xl text-white relative mt-[20vh]">
-              Kelvin Ng'eno
+              Kelvin Ng&apos;eno
             </h1>
 
             <div className={["text-white", " mt-10"].join(" ")}>
