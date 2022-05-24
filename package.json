@@ -9,12 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^4.2.6",
+    "@mantine/dates": "^4.2.5",
+    "@mantine/form": "^4.2.5",
+    "@mantine/hooks": "^4.2.6",
+    "@mantine/modals": "^4.2.6",
+    "@mantine/next": "^4.2.5",
+    "@mantine/notifications": "^4.2.5",
+    "dayjs": "^1.11.2",
+    "multiselect-react-dropdown": "^2.0.22",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-floating-label-input": "^4.3.4",
+    "styled-components": "^5.3.5",
+    "swiper": "^8.1.5",
+    "tabler-icons-react": "^1.48.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "css-loader": "^6.7.1",
     "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.0",
+    "tailwindcss": "^3.0.24"
   }
 }
