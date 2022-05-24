@@ -20,7 +20,7 @@ const ImageViewer = ({ images, title, description }) => {
           <div className="w-[88vw] h-[80vh] bg-gray-900 bg-opacity-10 flex flex-row flex-wrap items-center overflow-x-scroll ">
             {images.map((e, i) => {
               return (
-                <div className=" bg-red-100 rounded mx-3 ">
+                <div className=" bg-red-100 rounded mx-3  " key={i}>
                   <img
                     src={e.image}
                     className=" m-1 h-[67vh]  object-contain"
@@ -42,7 +42,11 @@ const ImageViewer = ({ images, title, description }) => {
     <div className="flex flex-row flex-nowrap mt-6 align-middle items-center">
       {images.map((e, i) => {
         return (
-          <div className=" bg-red-100 rounded mx-3 " onClick={openContentModal}>
+          <div
+            key={i}
+            className=" bg-red-100 rounded mx-3 "
+            onClick={openContentModal}
+          >
             <img src={e.image} className=" m-1 h-[30vh]  object-contain" />
           </div>
         );

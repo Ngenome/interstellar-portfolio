@@ -3,7 +3,7 @@ import { aboutIcon, homeIcon } from "./svgs";
 export default function Nav() {
   return (
     <nav className="h-[10vh] flex flex-row w-full justify-between bg-primary_bg bg-opacity-50 backdrop-blur-lg items-center shadow-sm">
-      <span className="text-white "> Kelvin Ng'eno</span>
+      <span className="text-white "> Kelvin Ng&apos;eno</span>
       <ul className="flex flex-row flex-nowrap">
         <NavComponent img={homeIcon} href="/" />
         <NavComponent

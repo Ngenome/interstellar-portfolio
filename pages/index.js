@@ -18,12 +18,12 @@ export default function Home() {
               Kelvin Ng'eno
             </h1>
 
-            <div className={[`text-white`, " mt-10"].join(" ")}>
+            <div className={["text-white", " mt-10"].join(" ")}>
               <ul>
                 <li>
                   <a
                     href="about"
-                    className={[`text-white`, styles.work_link].join(" ")}
+                    className={["text-white", styles.work_link].join(" ")}
                   >
                     App developer
                   </a>
@@ -31,7 +31,7 @@ export default function Home() {
                 <li>
                   <a
                     href=""
-                    className={[`text-white`, styles.work_link].join(" ")}
+                    className={["text-white", styles.work_link].join(" ")}
                   >
                     Web developer
                   </a>
@@ -39,7 +39,7 @@ export default function Home() {
                 <li>
                   <a
                     href=""
-                    className={[`text-white`, styles.work_link].join(" ")}
+                    className={["text-white", styles.work_link].join(" ")}
                   >
                     Designer
                   </a>
