@@ -172,7 +172,34 @@ Resize
   },
   { ssr: false }
 );
+const BackgroundAnimation = () => {
+  return (
+    <>
+      <p id="head1" className="header">
+        Awesome designs
+      </p>
+      <p id="head2" className="header">
+        Just
+      </p>
+      <p id="head3" className="header">
+        For you
+      </p>
+      <p id="head4" className="header">
+        simple and awesome all the time
+      </p>
 
+      <div className="light x1"></div>
+      <div className="light x2"></div>
+      <div className="light x3"></div>
+      <div className="light x4"></div>
+      <div className="light x5"></div>
+      <div className="light x6"></div>
+      <div className="light x7"></div>
+      <div className="light x8"></div>
+      <div className="light x9"></div>
+    </>
+  );
+};
 export default function Home() {
   useEffect(() => {
     // setup();
@@ -203,28 +230,8 @@ export default function Home() {
         >
           <source src="/lines.mp4" />
         </video> */}
-        <p id="head1" class="header">
-          Awesome designs
-        </p>
-        <p id="head2" class="header">
-          Just
-        </p>
-        <p id="head3" class="header">
-          For you
-        </p>
-        <p id="head4" class="header">
-          simple and awesome all the time
-        </p>
 
-        <div className="light x1"></div>
-        <div className="light x2"></div>
-        <div className="light x3"></div>
-        <div className="light x4"></div>
-        <div className="light x5"></div>
-        <div className="light x6"></div>
-        <div className="light x7"></div>
-        <div className="light x8"></div>
-        <div className="light x9"></div>
+        <BackgroundAnimation />
         <div className="flex flex-row flex-nowrap  ">
           <div>
             <h1 className="font-bold text-5xl text-white relative mt-[20vh]">
