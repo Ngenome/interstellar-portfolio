@@ -1,21 +1,48 @@
-import { Button, Input, MultiSelect, Textarea } from "@mantine/core";
+import {
+  Button,
+  Input,
+  MultiSelect,
+  NumberInput,
+  Textarea,
+  TextInput,
+} from "@mantine/core";
 import { DatePicker } from "@mantine/dates";
-import { useState } from "react";
+
 import { At, Message, Send, User } from "tabler-icons-react";
 import { primary } from "../styles/theme";
 // import inputStyles from "../styles/FloatingInput.module.css"
-import FloatingLabelInput from "react-floating-label-input";
+// import FloatingLabelInput from "react-floating-label-input";
+import Script from "next/script";
+import { useState } from "react";
+import {
+  useDebouncedValue,
+  useEventListener,
+  useInputState,
+  useUncontrolled,
+} from "@mantine/hooks";
 const CustomInput = ({
   label,
   type,
   name,
   id,
+  setHigherState,
+  onChange,
   icon,
   placeholder,
+  defaultValue,
   className,
-  onChange,
+  // onChangeFunction,
   textarea,
+  state,
 }) => {
+  const [_value, handleChange] = useUncontrolled({
+    state,
+    defaultValue,
+    finalValue: "Final",
+    rule: (val) => typeof val === "string",
+    onChange,
+  });
+
   return (
     <div className="flex flex-col my-2">
       <label className="flex flex-col text-white">
@@ -28,21 +55,22 @@ const CustomInput = ({
           {icon}
           {textarea ? (
             <textarea
-              className="w-[18.9vw] h-32 rounded-tr-md rounded-br-md bg-transparent    focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent  "
+              className="w-[18.9vw] h-32 rounded-tr-md rounded-br-md bg-transparent  focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent"
               id={id}
               name={name}
               placeholder={placeholder}
               type={type}
-              onChange={onChange}
+              onChange={(event) => handleChange(event.currentTarget.value)}
             />
           ) : (
             <input
               className="w-[18.9vw] h-10 rounded-tr-md rounded-br-md bg-transparent    focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent  "
               id={id}
               name={name}
+              value={_value}
               placeholder={placeholder}
               type={type}
-              onChange={onChange}
+              onChange={(event) => handleChange(event.currentTarget.value)}
             />
           )}
         </div>
@@ -50,16 +78,36 @@ const CustomInput = ({
     </div>
   );
 };
+
+function WithUseInputState() {
+  const [stringValue, setStringValue] = useInputState("");
+  const [numberValue, setNumberValue] = useInputState(0);
+
+  return (
+    <>
+      <input type="text" value={stringValue} onChange={setStringValue} />
+      <TextInput value={stringValue} onChange={setStringValue} />
+      <NumberInput value={numberValue} onChange={setNumberValue} />
+    </>
+  );
+}
+// setNumberValue;
 const Contact = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useInputState("");
   const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [activeItem, setActiveItem] = useState("order");
-  const [orderMail, setOrderMail] = useState("");
-  const [organisationName, setOrganisationName] = useState("");
-  const [orderDetail, setOrderDetail] = useState("");
-  const [orderDate, setOrderDate] = useState("");
-  // const
+  const [message, setMessage] = useInputState("");
+  const [activeItem, setActiveItem] = useState("message");
+  const [orderMail, setOrderMail] = useInputState("");
+  const [organisationName, setOrganisationName] = useInputState("");
+  const [orderDetail, setOrderDetail] = useInputState("");
+  const [orderDate, setOrderDate] = useInputState("");
+  // const mailRef = useEventListener("change", (e) => {
+  //   setEmail("email");
+  //   console.log(e);
+  // });
+
+  const [value, setValue] = useState("");
+  const [debounced] = useDebouncedValue(value, 500);
   const data = [
     { value: "react", label: "React" },
     { value: "ng", label: "Angular" },
@@ -98,19 +146,29 @@ const Contact = () => {
         icon={<User size={32} />}
         label={""}
         name="name"
+        setState={setName}
+        state={name}
+        onChange={(e) => {
+          setName(e);
+        }}
+        // setHigherState={setName}
         placeholder="Your name"
+        type={"text"}
       />
+
       <CustomInput
         icon={<At size={25} />}
         label={""}
         name="email"
         placeholder="Email"
+        onChange={setEmail}
       />
       <CustomInput
         icon={<Message size={25} />}
         name="name"
         placeholder="Your Message"
         textarea={true}
+        onChange={setMessage}
       />
 
       <Button
@@ -125,114 +183,15 @@ const Contact = () => {
           },
         }}
         variant="filled"
+        onClick={() => {
+          console.log(message);
+        }}
       >
         Send
       </Button>
     </div>
   );
-  const OrderData = () => (
-    <div>
-      <Input
-        variant="outline"
-        styles={{
-          ...CommonStyles,
-        }}
-        icon={<User />}
-        placeholder="Your organisation name/your name"
-        onChange={(e) => {
-          setOrganisationName(e.target.value);
-        }}
-      />
-      <Input
-        styles={{
-          ...CommonStyles,
-        }}
-        icon={<At />}
-        placeholder="Your Email"
-        onChange={(e) => {
-          setOrderMail(e.target.value);
-        }}
-      />
-      <MultiSelect
-        styles={{
-          wrapper: {
-            width: "20vw",
-            marginTop: 10,
-            color: "white",
-            borderColor: "aqua",
-          },
-          icon: {
-            verticalAlign: "top",
-
-            position: "absolute",
-            color: primary,
-          },
-          label: {
-            color: "white",
-            marginTop: 3,
-          },
-          input: {
-            backgroundColor: "transparent",
-          },
-        }}
-        data={data}
-        label="Your favorite frameworks/libraries"
-        placeholder="Pick all that you like"
-      />
-      <DatePicker
-        styles={{
-          wrapper: {
-            width: "20vw",
-            marginTop: 20,
-            color: "white",
-            borderColor: "aqua",
-          },
-          icon: {
-            verticalAlign: "top",
-
-            position: "absolute",
-            color: primary,
-          },
-          label: {
-            color: "white",
-            marginTop: 3,
-          },
-          input: {
-            backgroundColor: "transparent",
-          },
-        }}
-        placeholder="Pick date"
-        label="Event date"
-        required
-      />
-      <Textarea
-        styles={{
-          input: {
-            height: 200,
-          },
-          icon: {
-            verticalAlign: "top",
-            top: "-80%",
-            position: "absolute",
-          },
-          wrapper: {
-            alignItems: "flex-start",
-            justifyContent: "flex-start",
-            display: "flex",
-            width: "20vw",
-            marginTop: 20,
-            height: 200,
-            // backgroundColor: "red",
-          },
-        }}
-        icon={<Message />}
-        placeholder="Details of the service you need"
-        onChange={(e) => {
-          setMessage(e.target.value);
-        }}
-      />
-    </div>
-  );
+  const OrderData = () => <div></div>;
   return (
     <div>
       <h1 className="font-bold text-2xl text-white relative ">Contact</h1>
@@ -255,7 +214,7 @@ const Selector = (props) => {
   //   const [activeItem, setActiveItem] = useState("order");
   const { activeItem, setActiveItem } = props.setState;
   const activeClasses =
-    "bg-green-400 w-72 h-10 rounded-full items-center justify-center flex";
+    "bg-green-400 w-60 h-10 rounded-full items-center justify-center flex";
   const inActiveClasses =
     " w-72 h-10 rounded-full items-center justify-center flex";
   return (
@@ -268,14 +227,14 @@ const Selector = (props) => {
       >
         <span className="text-white cursor-pointer">Message/Inquiry</span>
       </div>
-      <div
+      {/* <div
         className={activeItem == "order" ? activeClasses : inActiveClasses}
         onClick={() => {
           setActiveItem("order");
         }}
       >
         <span className="text-white cursor-pointer">Place an order</span>
-      </div>
+      </div> */}
     </div>
   );
 };
