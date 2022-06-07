@@ -5,6 +5,8 @@ import { useEffect } from "react";
 // import Sketch from "react-p5";
 import styles from "../styles/Home.module.css";
 import dynamic from "next/dynamic";
+import gsap from "gsap";
+import { useRef } from "react";
 
 const DynamicComponentWithNoSSR = dynamic(
   () => {
@@ -201,9 +203,36 @@ const BackgroundAnimation = () => {
   );
 };
 export default function Home() {
+  const heading = useRef(null);
+  const listing = useRef(null);
   useEffect(() => {
-    // setup();
-    // draw();
+    const q = gsap.utils.selector(listing);
+    gsap.fromTo(
+      heading.current,
+      {
+        x: 79,
+      },
+      {
+        x: 0,
+        duration: 1,
+        // opacity: 0,
+      }
+    );
+    gsap.fromTo(
+      ".anchor",
+      {
+        opacity: 0,
+        stagger: 0.4,
+        x: -7,
+        // opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        stagger: 1,
+        x: -27,
+      }
+    );
   }, []);
 
   return (
@@ -232,26 +261,45 @@ export default function Home() {
         </video> */}
 
         <BackgroundAnimation />
-        <div className="flex flex-row flex-nowrap  ">
-          <div>
-            <h1 className="font-bold text-5xl text-white relative mt-[20vh]">
-              Kelvin Ng&apos;eno
-            </h1>
 
-            <div className={["text-white", " mt-10"].join(" ")}>
+        <div className="flex flex-row flex-nowrap justify-between ">
+          <div className="">
+            {/* <h1
+              ref={heading}
+              id="name_heading"
+              className="font-bold linear-wipe text-[60px] text-white relative mt-[20vh]"
+            ></h1> */}
+
+            <div
+              ref={heading}
+              id="name_heading"
+              class=" animate_content relative h-32 mt-40"
+            >
+              <span className="absolute w-[400px]">Kelvin Ngeno</span>
+
+              <span className="absolute w-[400px]">Kelvin Ngeno</span>
+            </div>
+
+            <div className={["text-white", " "].join(" ")}>
               <ul>
                 <li>
                   <a
                     href="about"
-                    className={["text-white", styles.work_link].join(" ")}
+                    id="anchor"
+                    className={["anchor text-white", styles.work_link].join(
+                      " "
+                    )}
                   >
                     App developer
                   </a>
                 </li>
-                <li>
+                <li ref={listing}>
                   <a
                     href=""
-                    className={["text-white", styles.work_link].join(" ")}
+                    id="anchor"
+                    className={["anchor text-white", styles.work_link].join(
+                      " "
+                    )}
                   >
                     Web developer
                   </a>
@@ -259,7 +307,10 @@ export default function Home() {
                 <li>
                   <a
                     href=""
-                    className={["text-white", styles.work_link].join(" ")}
+                    id="anchor"
+                    className={["anchor text-white", styles.work_link].join(
+                      " "
+                    )}
                   >
                     Designer
                   </a>
@@ -270,7 +321,7 @@ export default function Home() {
           <div className="ml-20">
             <img
               src="/circlebg.png"
-              className=" h-[600px] w-[600px] object-contain"
+              className="rotator h-[600px] w-[600px] object-contain"
             />
           </div>
         </div>

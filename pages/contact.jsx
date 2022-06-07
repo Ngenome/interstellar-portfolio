@@ -48,14 +48,14 @@ const CustomInput = ({
       <label className="flex flex-col text-white">
         {label}
         <div
-          className={`flex flex-row  border-2 border-cyan-400 w-[20vw] ${
+          className={`flex flex-row  border-2 border-cyan-400 w-[400px] ${
             textarea ? "h-30 items-start" : "h-10 items-center"
           } rounded-md `}
         >
           {icon}
           {textarea ? (
             <textarea
-              className="w-[18.9vw] h-32 rounded-tr-md rounded-br-md bg-transparent  focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent"
+              className="w-[200px] h-32 rounded-tr-md rounded-br-md bg-transparent  focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent"
               id={id}
               name={name}
               placeholder={placeholder}
@@ -64,7 +64,7 @@ const CustomInput = ({
             />
           ) : (
             <input
-              className="w-[18.9vw] h-10 rounded-tr-md rounded-br-md bg-transparent    focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent  "
+              className="w-[300px] h-10 rounded-tr-md rounded-br-md bg-transparent    focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent  "
               id={id}
               name={name}
               value={_value}
@@ -141,7 +141,7 @@ const Contact = () => {
     },
   };
   const MessageData = () => (
-    <div>
+    <>
       <CustomInput
         icon={<User size={32} />}
         label={""}
@@ -189,23 +189,73 @@ const Contact = () => {
       >
         Send
       </Button>
-    </div>
+    </>
   );
-  const OrderData = () => <div></div>;
+  const OrderData = () => (
+    <>
+      <CustomInput
+        icon={<User size={32} />}
+        label={""}
+        name="name"
+        setState={setName}
+        state={name}
+        onChange={(e) => {
+          setName(e);
+        }}
+        // setHigherState={setName}
+        placeholder="Your name"
+        type={"text"}
+      />
+
+      <CustomInput
+        icon={<At size={25} />}
+        label={""}
+        name="email"
+        placeholder="Email"
+        onChange={setEmail}
+      />
+      <CustomInput
+        icon={<Message size={25} />}
+        name="name"
+        placeholder="Your Message"
+        textarea={true}
+        onChange={setMessage}
+      />
+
+      <Button
+        leftIcon={<Send />}
+        styles={{
+          filled: {
+            color: "cyan",
+            backgroundColor: "white",
+          },
+          default: {
+            color: "red",
+          },
+        }}
+        variant="filled"
+        onClick={() => {
+          console.log(message);
+        }}
+      >
+        Send
+      </Button>
+    </>
+  );
   return (
     <div>
-      <h1 className="font-bold text-2xl text-white relative ">Contact</h1>
-      <div>
+      <h1 className="font-bold text-2xl text-white relative  ">Contact</h1>
+      <div className="flex flex-col justify-center items-center">
         <Selector
           setState={{
             activeItem,
             setActiveItem,
           }}
         />
-      </div>
-      {/* {activeItem == "message" ? <MessageData /> : <OrderData />} */}
 
-      <MessageData />
+        {activeItem == "message" ? <MessageData /> : <OrderData />}
+      </div>
+      {/* <MessageData /> */}
     </div>
   );
 };
@@ -227,14 +277,14 @@ const Selector = (props) => {
       >
         <span className="text-white cursor-pointer">Message/Inquiry</span>
       </div>
-      {/* <div
+      <div
         className={activeItem == "order" ? activeClasses : inActiveClasses}
         onClick={() => {
           setActiveItem("order");
         }}
       >
         <span className="text-white cursor-pointer">Place an order</span>
-      </div> */}
+      </div>
     </div>
   );
 };

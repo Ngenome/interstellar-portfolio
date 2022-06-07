@@ -26,7 +26,7 @@ a {
   /* background-image: url("/blob.svg"); */
 }
 .skillItem{
-  background-image: url("/tech/codetools.jpg");
+  /* background-image: url("/tech/codetools.jpg"); */
   background-size: cover;
   
 
@@ -46,114 +46,38 @@ a {
 /* -------   Required CSS (customizable)  ------- */
 /* ---------------------------------------------- */
 
-:root {
-  --color__accent: #6200ee;
-
-  --field__background: #f5f5f5;
-  --field__background--hover: #e9e9e9;
-  --input__border: rgba(0, 0, 0, 0.42);
-  --input__border--hover: rgba(0, 0, 0, 0.62);
-  --label__color: #222;
-
-  --font__size: 16px;
-  --font__family: Roboto, Arial, sans-serif;
-}
-
-.floating {
-  margin-bottom: 2rem;
-  background-color: var(--field__background);
-  transition: background-color 0.2s ease;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.floating:hover,
-.floating:focus-within {
-  background-color: var(--field__background--hover);
-}
-
-.floating__input {
-  padding: 1.8rem 1rem 0.6rem;
-  font-size: 1rem;
-  border-bottom: 0.1rem solid var(--input__border);
-  transition: border-color 0.2s ease;
-  caret-color: var(--color__accent);
-}
-
-.floating:hover .floating__input {
-  border-color: var(--input__border--hover);
-}
-
-.floating__input::placeholder {
-  color: rgba(0, 0, 0, 0);
-}
-
-.floating__label {
-  display: block;
-  position: relative;
-  max-height: 0;
-  font-weight: 500;
-  pointer-events: none;
-}
-
-.floating__label::before {
-  color: var(--label__color);
-  content: attr(data-content);
-  display: inline-block;
-  filter: blur(0);
-  backface-visibility: hidden;
-  transform-origin: left top;
-  transition: transform 0.2s ease;
-  left: 1rem;
-  position: relative;
-}
-
-.floating__label::after {
-  bottom: 1rem;
-  content: "";
-  height: 0.1rem;
-  position: absolute;
-  transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
-  opacity: 0;
-  left: 0;
-  top: 100%;
-  margin-top: -0.1rem;
-  transform: scale3d(0, 1, 1);
-  width: 100px;
-  background-color: var(--color__accent);
-}
-
-.floating__input:focus+.floating__label::after {
-  transform: scale3d(1, 1, 1);
-  opacity: 1;
-}
-
-.floating__input:placeholder-shown+.floating__label::before {
-  transform: translate3d(0, -2.2rem, 0) scale3d(1, 1, 1);
-}
-
-.floating__label::before,
-.floating__input:focus+.floating__label::before {
-  transform: translate3d(0, -3.12rem, 0) scale3d(0.82, 0.82, 1);
-}
-
-.floating__input:focus+.floating__label::before {
-  color: var(--color__accent);
-}
 
 /* ---------------------------------------------- */
 /* --  Codepen styles & resets - not required  -- */
 /* ---------------------------------------------- */
+.linear-wipe {
+  text-align: center;
+  background: linear-gradient(to right,rgb(0, 255, 229) , rgb(0, 94, 255),rgb(0, 255, 229) );
+  background-size: 200% auto;
+color: #000;
+  background-clip: text;
+  /* text-shadow: 3px 3px 7px black; */
+  /* box-shadow: 2px 2px 3px red; */
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
+  animation: shine 5s linear infinite;
+
+
+}  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
 body {
   margin: 0;
-  height: 100vh;
-  font-weight: 100;
-  background: radial-gradient(#032eee, #1f1013);
-  -webkit-overflow-Y: hidden;
+  
+  /* font-weight: 100; */
+  background: rgb(6, 2, 28);
+  /* -webkit-overflow-Y: hidden;
   -moz-overflow-Y: hidden;
-  -o-overflow-Y: hidden;
+  -o-overflow-Y: hidden; */
   overflow-y: hidden;
   -webkit-animation: fadeIn 1 1s ease-out;
   -moz-animation: fadeIn 1 1s ease-out;
@@ -683,3 +607,234 @@ button:focus {
   transform: translate(95vw, 90vh);
   transform: translate(95vw, 90vh);
 }
+
+
+/* Heading animation */
+
+
+.animate_content span {  
+  color: #fff;
+  font-size: 3em;
+  /* position: absolute; */
+  /* transform: translate(-50%, -50%); */
+}
+
+.animate_content span:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+.animate_content span:nth-child(2) {
+  color: #a58cff;
+  animation: animate 10s ease-in-out infinite;
+}
+
+@keyframes animate {
+
+  0%,
+  100% {
+    clip-path: polygon(0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
+  }
+}
+
+:root {
+  --gap: 4px;
+  --background-page: rgb(29, 55, 203);
+  --background-container: rgba(8, 18, 132, 0.149);
+  --background-box: rgba(8, 10, 58, 0.928);
+  --color-line: #666;
+  --color-font: #444;
+  --columns: 5;
+  --border-radius: 3px;
+  --font-size: 18px;
+  --font-family: Arial;
+  --transition-duration: 600ms;
+  --transition-style: ease-in-out;
+  --container-max-width: 500px;
+}
+
+
+
+p.warning {
+  text-align: center;
+  line-height: 2;
+  margin: 0 auto;
+  font-size: 14px;
+  max-width: var(--container-max-width);
+  color: #fff;
+}
+
+p.warning a {
+  background: #45ba04;
+  color: #fff;
+  padding: .2rem .7rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+p.warning a.more:hover {
+  background: #3bacff;
+}
+
+.grid-container {
+  background: var(--background-container);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 1);
+  border-radius: var(--border-radius);
+
+  /* margin: 2em auto; */
+  position: relative;
+  align-self: center;
+  max-width: var(--container-max-width);
+  width: var(--container-max-width);
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  /* Horizontal spacing between the entries. */
+  padding: var(--gap) var(--gap) calc(var(--gap)/2) var(--gap);
+  /* The external spacing of the container. */
+  overflow: hidden;
+  /* Prevents .corner::before to be visible outside the margins of the container. */
+}
+
+.entry {
+  width: calc((100% / var(--columns)) - calc(var(--gap)/2));
+  /* Column width must take into account the desired gap. */
+  margin-bottom: calc(var(--gap)/2);
+  /* Vertical spacing between the entries. */
+  position: relative;
+  /* This is required, to contain .corner::before within the margins of it's parent. */
+}
+
+.entry-content {
+  display: grid;
+  place-items: center;
+  min-height: clamp(1em, calc(100vw/var(--columns)), calc(var(--container-max-width)/var(--columns)));
+  background: var(--background-box);
+  transition: all var(--transition-duration) var(--transition-style);
+  pointer-events: none;
+  /* When hovering over an entry, ignore this element, even if its on the foreground. */
+  z-index: 1;
+  /* The content div should have a higher z-index than the .corner::before. */
+  position: relative;
+  /* z-index would have no effect without a specific position. */
+}
+
+.entry:hover .entry-content {
+  background: var(--background-container);
+  color: var(--color-line);
+}
+
+.corner-container {
+  /* The corner container should cover the entire entry. */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.corner {
+  /* Each corner should cover 1/4 of an entry. */
+  position: absolute;
+  width: 50%;
+  height: 50%;
+}
+
+.corner::before {
+  /* The cross shape is just a big box positioned behind the entries. */
+  content: '';
+  display: block;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  transition: opacity var(--transition-duration) var(--transition-style);
+  background: radial-gradient(var(--color-line) 0, transparent 70%);
+  /* Radial gradient smoothens the shape's edges. */
+  pointer-events: none;
+  /* This is needed to prevent hovering on the ::before element instead of its container span. */
+}
+
+.corner:hover::before {
+  opacity: 1;
+}
+
+/* Position the corners and their respective shapes. */
+.corner:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.corner:nth-child(1)::before {
+  left: -100%;
+  top: -100%;
+}
+
+.corner:nth-child(2) {
+  right: 0;
+  top: 0;
+}
+
+.corner:nth-child(2)::before {
+  right: -100%;
+  top: -100%;
+}
+
+.corner:nth-child(3) {
+  left: 0;
+  bottom: 0;
+}
+
+.corner:nth-child(3)::before {
+  left: -100%;
+  bottom: -100%;
+}
+
+.corner:nth-child(4) {
+  right: 0;
+  bottom: 0;
+}
+
+.corner:nth-child(4)::before {
+  right: -100%;
+  bottom: -100%;
+}
+/* @keyframes constant_rotate {
+
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360);
+  }
+
+} */
+.rotator{
+  animation-name: constant_rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  /* margin-top: 300px; */
+}
+

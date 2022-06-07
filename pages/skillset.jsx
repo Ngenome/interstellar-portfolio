@@ -105,10 +105,10 @@ const AboutPage = () => {
     );
   };
   return (
-    <div className="skillItem w-[80vw] ">
+    <div className="skillItem w-[100vw] overflow-x-hidden">
       <h1 className="font-bold text-2xl text-white relative ">My skillset</h1>
-      <div className="flex flex-col h-[80vh] flex-nowrap  bg-gray-400 bg-opacity-10 backdrop-blur-md w-[80vw]  ">
-        <div className="skillset  w-[80vw]  flex flex-row flex-wrap justify-center rounded-md">
+      <div className=" flex flex-row h-[65vh] justify-center items-center content-center align-middle">
+        <div className="grid-container ">
           {skillItems.map((e, i) => {
             return (
               <Skillset
@@ -122,7 +122,7 @@ const AboutPage = () => {
             );
           })}
         </div>
-        <div className=" bg-opacity-10 h-full relative">
+        {/* <div className=" bg-opacity-10 h-full relative">
           <h1 className="text-gray-800 opacity-40  text-[30vw] absolute z-1  ">
             {activeItem?.name}
           </h1>
@@ -156,7 +156,7 @@ const AboutPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -167,41 +167,16 @@ export default AboutPage;
 const Skillset = ({ image, name, description, setState }) => {
   const [opened, setOpened] = useState(false);
   return (
-    <Popover
-      opened={opened}
-      onClose={() => setOpened(false)}
-      target={
-        <div
-          onMouseEnter={() => {
-            setOpened(true);
-          }}
-          onMouseLeave={() => {
-            setOpened(false);
-          }}
-          onClick={() => {
-            setState({
-              name: name,
-              image: image,
-              description: description,
-            });
-          }}
-          className="h-[7vh] w-[7vh] rounded-lg justify-center flex items-center bg-gray-900 bg-opacity-40 m-2"
-        >
-          <img
-            src={image}
-            className="h-[6.5vh] w-[6.5vh] object-contain "
-            alt="name"
-          />
-        </div>
-      }
-      width={260}
-      position="bottom"
-      withArrow
-    >
-      <div>
-        <span className="font-bold  text-primary_bg relative ">{name}</span>
-        <p>{description}</p>
+    <div class="entry">
+      <div class="entry-content">
+        <img src={image} className="object-contain h-[80px] " alt="name" />
       </div>
-    </Popover>
+      <div class="corner-container">
+        <span class="corner"></span>
+        <span class="corner"></span>
+        <span class="corner"></span>
+        <span class="corner"></span>
+      </div>
+    </div>
   );
 };

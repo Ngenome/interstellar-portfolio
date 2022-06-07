@@ -1,34 +1,60 @@
-import { aboutIcon, homeIcon } from "./svgs";
+import gsap from "gsap";
+import { useEffect } from "react";
+import { homeIcon } from "./svgs";
+// import { aboutIcon, homeIcon } from "./svgs";
 
 export default function Nav() {
+  useEffect(() => {
+    gsap.fromTo(
+      ".nav_item",
+      {
+        y: -14,
+      },
+      {
+        y: 0,
+        duration: 0.45,
+        stagger: 0.12,
+      }
+    );
+  }, []);
   return (
-    <nav className="h-[10vh] flex flex-row w-full justify-between bg-primary_bg bg-opacity-50 backdrop-blur-lg items-center shadow-sm">
+    <nav className="  h-[10vh]  flex flex-row  w-full justify-between z-20 bg-primary_bg bg-opacity-50 backdrop-blur-lg items-center shadow-sm sticky top-0">
       <span className="text-white "> Kelvin Ng&apos;eno</span>
       <ul className="flex flex-row flex-nowrap">
-        <NavComponent img={homeIcon} href="/" />
+        <NavComponent svg img={homeIcon} href="/" text="Home" />
+        <NavComponent img={"/icons/about.png"} href="about" text="About" />
         <NavComponent
-          img={<img src="/icons/about.png" className="h-6" />}
-          href="about"
-        />
-        <NavComponent
-          img={<img src="/icons/mechanic-tools.png" className="h-6" />}
+          img={"/icons/mechanic-tools.png"}
+          text="Skills"
           href="skillset"
         />
+        <NavComponent img="icons/messages.png" href="contact" text="Contact" />
         <NavComponent
-          img={<img src="/icons/messages.png" className="h-6" />}
-          href="contact"
+          img="icons/messages.png"
+          href="projects"
+          text="projects"
         />
+        <NavComponent img="icons/cogwheels.png" href="process" text="Process" />
       </ul>
     </nav>
   );
 }
 
-const NavComponent = ({ img, text, href }) => {
+const NavComponent = ({ img, text, href, svg }) => {
   return (
-    <a href={href} className="mx-10">
-      <div className="flex flex-row">
-        {img}
-        <span className="text-white ">{text}</span>
+    <a href={href} className="nav_item mx-10 group">
+      <div className="flex flex-col w-12 h-12 items-center">
+        {svg ? (
+          img
+        ) : (
+          <img
+            src={img}
+            className="h-6 object-contain transition duration-300"
+          />
+        )}{" "}
+        <span className="text-white opacity-0 transition duration-300 text-sm group-hover:text-base group-hover:opacity-100">
+          {text}
+        </span>
       </div>
     </a>
   );
