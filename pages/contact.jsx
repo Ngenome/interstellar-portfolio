@@ -7,19 +7,22 @@ import {
   TextInput,
 } from "@mantine/core";
 import { DatePicker } from "@mantine/dates";
-
+import BIRDS from "vanta/dist/vanta.birds.min";
+import HALO from "vanta/dist/vanta.halo.min";
+import NET from "vanta/dist/vanta.net.min";
 import { At, Message, Send, User } from "tabler-icons-react";
 import { primary } from "../styles/theme";
 // import inputStyles from "../styles/FloatingInput.module.css"
 // import FloatingLabelInput from "react-floating-label-input";
 import Script from "next/script";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   useDebouncedValue,
   useEventListener,
   useInputState,
   useUncontrolled,
 } from "@mantine/hooks";
+import axios from "axios";
 const CustomInput = ({
   label,
   type,
@@ -64,7 +67,7 @@ const CustomInput = ({
             />
           ) : (
             <input
-              className="w-[300px] h-10 rounded-tr-md rounded-br-md bg-transparent    focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent  "
+              className="w-[80vw] sm:w-[300px] h-10 rounded-tr-md rounded-br-md bg-transparent    focus:outline-none focus:border-sky-500 focus:bg-transparent autofill:bg-transparent  "
               id={id}
               name={name}
               value={_value}
@@ -101,13 +104,28 @@ const Contact = () => {
   const [organisationName, setOrganisationName] = useInputState("");
   const [orderDetail, setOrderDetail] = useInputState("");
   const [orderDate, setOrderDate] = useInputState("");
-  // const mailRef = useEventListener("change", (e) => {
-  //   setEmail("email");
-  //   console.log(e);
-  // });
-
+  const [vantaEffect, setVantaEffect] = useState(null);
+  const vantaBG = useRef(null);
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        HALO({
+          el: vantaBG.current,
+        })
+      );
+    }
+    if (vantaEffect) {
+      vantaEffect.setOptions({
+        color: "aqua",
+      });
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
   const [value, setValue] = useState("");
   const [debounced] = useDebouncedValue(value, 500);
+
   const data = [
     { value: "react", label: "React" },
     { value: "ng", label: "Angular" },
@@ -140,120 +158,90 @@ const Contact = () => {
       backgroundColor: "transparent",
     },
   };
-  const MessageData = () => (
-    <>
-      <CustomInput
-        icon={<User size={32} />}
-        label={""}
-        name="name"
-        setState={setName}
-        state={name}
-        onChange={(e) => {
-          setName(e);
-        }}
-        // setHigherState={setName}
-        placeholder="Your name"
-        type={"text"}
-      />
 
-      <CustomInput
-        icon={<At size={25} />}
-        label={""}
-        name="email"
-        placeholder="Email"
-        onChange={setEmail}
-      />
-      <CustomInput
-        icon={<Message size={25} />}
-        name="name"
-        placeholder="Your Message"
-        textarea={true}
-        onChange={setMessage}
-      />
-
-      <Button
-        leftIcon={<Send />}
-        styles={{
-          filled: {
-            color: "cyan",
-            backgroundColor: "white",
-          },
-          default: {
-            color: "red",
-          },
-        }}
-        variant="filled"
-        onClick={() => {
-          console.log(message);
-        }}
-      >
-        Send
-      </Button>
-    </>
-  );
-  const OrderData = () => (
-    <>
-      <CustomInput
-        icon={<User size={32} />}
-        label={""}
-        name="name"
-        setState={setName}
-        state={name}
-        onChange={(e) => {
-          setName(e);
-        }}
-        // setHigherState={setName}
-        placeholder="Your name"
-        type={"text"}
-      />
-
-      <CustomInput
-        icon={<At size={25} />}
-        label={""}
-        name="email"
-        placeholder="Email"
-        onChange={setEmail}
-      />
-      <CustomInput
-        icon={<Message size={25} />}
-        name="name"
-        placeholder="Your Message"
-        textarea={true}
-        onChange={setMessage}
-      />
-
-      <Button
-        leftIcon={<Send />}
-        styles={{
-          filled: {
-            color: "cyan",
-            backgroundColor: "white",
-          },
-          default: {
-            color: "red",
-          },
-        }}
-        variant="filled"
-        onClick={() => {
-          console.log(message);
-        }}
-      >
-        Send
-      </Button>
-    </>
-  );
   return (
-    <div>
+    <div ref={vantaBG} id="vantaBG" className="min-h-screen">
+      <Script
+        strategy="beforeInteractive"
+        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
+        onLoad={() => {}}
+      />
+      {/* <Script
+        strategy="beforeInteractive"
+        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"
+      />
+      <Script
+        strategy="beforeInteractive"
+        src="/scripts/vanta.js"
+        onLoad={() => {
+          console.log("VANTA");
+        }}
+      /> */}
       <h1 className="font-bold text-2xl text-white relative  ">Contact</h1>
       <div className="flex flex-col justify-center items-center">
-        <Selector
+        {/* <Selector
           setState={{
             activeItem,
             setActiveItem,
           }}
-        />
-
-        {activeItem == "message" ? <MessageData /> : <OrderData />}
+        />{activeItem == "message" ? <MessageData /> : <OrderData />} */}
+        <div>
+          <div className="flex flex-col mt-2">
+            <label htmlFor="name" className="text-white">
+              Name
+            </label>
+            <input
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              type="Name"
+              id="name"
+              className="h-10 w-[70vw] border-2  text-white px-2 border-sky-100 bg-blue-900 bg-opacity-20 rounded-md"
+            />
+          </div>
+          <div className="flex flex-col mt-2">
+            <span className="text-white">Email</span>
+            <input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              id="email"
+              type="email"
+              className="h-10 w-[70vw] text-white px-2 border-2 border-sky-100  bg-blue-900 bg-opacity-20 rounded-md"
+            />
+          </div>
+          <div className="flex flex-col mt-2">
+            <span className="text-white ">Message</span>
+            <textarea
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }}
+              id="email"
+              className="h-40 w-[70vw]  text-white px-2  border-2 border-sky-100  bg-blue-900 bg-opacity-20 rounded-md"
+            />
+          </div>
+          <div className="flex flex-row justify-center mt-4">
+            <div
+              onClick={() => {
+                axios
+                  .post("http://stellarsendymail.herokuapp.com", {
+                    sender_email: email,
+                    subject: "this is a subject",
+                    message: message,
+                  })
+                  .then(function (response) {
+                    alert("sent the email successfully");
+                  })
+                  .catch(function (error) {
+                    alert("sorry an error occured");
+                  });
+              }}
+              className="p-2 w-32 rounded-lg bg-cyan-400 flex justify-center items-center"
+            >
+              <span className="text-white ">Send</span>
+            </div>
+          </div>
+        </div>
       </div>
       {/* <MessageData /> */}
     </div>

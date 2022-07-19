@@ -1,6 +1,7 @@
 /*--------------------
 Vars
 --------------------*/
+// import * as from "p5"
 const deg = (a) => (Math.PI / 180) * a;
 const rand = (v1, v2) => Math.floor(v1 + Math.random() * (v2 - v1));
 const opt = {

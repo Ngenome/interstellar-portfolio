@@ -18,10 +18,10 @@ export default function SocialIcons() {
     );
   }, []);
   var stls =
-    "opacity-75 hover:opacity-100 mx-3 transition duration-500 relative  hover:-translate-y-2 social_icon ";
+    "opacity-75 hover:opacity-100 mx-3 transition duration-500 relative  hover:-translate-y-2 social_icon   ";
   var iconColor = "#fff";
   return (
-    <div className="social_icon_container   flex flex-row w-[400px] justify-center flex-nowrap  absolute bottom-5  bg-indigo-600 shadow-2xl border-indigo-100 border-2 bg-opacity-50 rounded-tr-full rounded-br-full p-1 backdrop-blur-sm">
+    <div className="social_icon_container   flex flex-row w-[100vw] sm:w-[400px] justify-center flex-nowrap  fixed sm:bottom-5 bottom-0  sm:bg-indigo-600 hover:bg-purple-500 hover:duration-500 hover:bg-opacity-40 transition duration-200 shadow-2xl sm:border-indigo-100 sm:border-2 bg-opacity-50 sm:rounded-tr-full sm:rounded-br-full sm:p-1  backdrop-blur-sm">
       <SocialIcon
         className={stls}
         bgColor={iconColor}

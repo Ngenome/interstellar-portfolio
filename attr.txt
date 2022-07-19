@@ -5,3 +5,6 @@
 <a href="https://iconscout.com/icons/contact" target="_blank">Contact Icon</a> by <a href="https://iconscout.com/contributors/symu-icons" target="_blank">Symu Icons</a>
 
 <a href="https://iconscout.com/icons/messages" target="_blank">Messages Icon</a> by <a href="https://iconscout.com/contributors/giulio-smedile" target="_blank">Giulio Smedile</a>
+<a href="https://iconscout.com/icons/project" target="_blank">Project Icon</a> by <a href="https://iconscout.com/contributors/jemismali" target="_blank">Jemis Mali</a>
+<a href="https://iconscout.com/icons/link" target="_blank">Link Icon</a> by <a href="https://iconscout.com/contributors/eva-icons">Akveo</a> on <a href="https://iconscout.com">IconScout</a>
+<a href="https://iconscout.com/icons/external" target="_blank">External Icon</a> by <a href="https://iconscout.com/contributors/feathericons" target="_blank">Feather Icons</a>

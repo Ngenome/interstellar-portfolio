@@ -1,10 +1,5 @@
 export const homeIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35">
     <path
       fill="none"
       stroke="white"
@@ -26,7 +21,7 @@ export const aboutIcon = (
     <linearGradient
       id="a"
       x1="16"
-      x2="16"
+    x2="16"
       y1=".375"
       y2="32.242"
       gradientUnits="userSpaceOnUse"
