@@ -33,7 +33,7 @@ const projects = [
       pngmerger("dropp-8"),
       pngmerger("dropp-9"),
     ],
-    descriptionTitle: "A design project from",
+    descriptionTitle: "Dropp Management Systems Design",
     description:
       "This  are designs for the dissolve management application, made with the figma design software",
     link: "https://www.figma.com/file/G9OW9Mz0zYGWs7jyPENSO3/Droppms",
@@ -52,9 +52,9 @@ const projects = [
       pngmerger("repent-app-6"),
       pngmerger("repent-app-7"),
     ],
-    descriptionTitle: "A design project from",
+    descriptionTitle: "Repent Member Registration App",
     description:
-      "This  are designs for the dissolve management application, made with the figma design software",
+      "This is an app I made with react native and django on the backend to help a Church register their members with ease and avoid the heck of using a book and a pen",
     link: "https://turtle-v2-artifacts.s3.amazonaws.com/android/eb20a56f-02a2-432d-87fb-f563a166ca34-6b3ff7a6c0f44dfeb8b16e615f8df174.apk",
     tools: ["react-native", "Django"],
   },
@@ -68,7 +68,7 @@ const projects = [
       pngmerger("repent-backend-3"),
       pngmerger("repent-backend-4"),
     ],
-    descriptionTitle: "A design project from",
+    descriptionTitle: "Backend REST API for the repent app",
     description:
       "This is the app backend for the repent member registration app, that supports user authentication and has a user friendly interface to add the members and their details",
     link: "http://repent-backend.herokuapp.com/admin",
