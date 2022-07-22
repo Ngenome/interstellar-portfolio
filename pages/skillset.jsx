@@ -167,15 +167,15 @@ export default AboutPage;
 const Skillset = ({ image, name, description, setState }) => {
   const [opened, setOpened] = useState(false);
   return (
-    <div class="entry">
-      <div class="entry-content">
+    <div className="entry">
+      <div className="entry-content">
         <img src={image} className="object-contain h-[80px] " alt="name" />
       </div>
-      <div class="corner-container">
-        <span class="corner"></span>
-        <span class="corner"></span>
-        <span class="corner"></span>
-        <span class="corner"></span>
+      <div className="corner-container">
+        <span className="corner"></span>
+        <span className="corner"></span>
+        <span className="corner"></span>
+        <span className="corner"></span>
       </div>
     </div>
   );

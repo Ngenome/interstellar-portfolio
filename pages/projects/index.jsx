@@ -15,9 +15,8 @@ export default function ProjectsPage() {
           <div className="grid lg:grid-cols-3 gap-6  ">
             {data.projects.map((e, i) => {
               return (
-                <a href={`projects/${e.id}`}>
+                <a key={i} href={`projects/${e.id}`}>
                   <div
-                    key={i}
                     className="zoom shadow-lg rounded-lg relative overflow-hidden bg-no-repeat bg-cover"
                     style={{ backgroundPosition: "50%" }}
                   >

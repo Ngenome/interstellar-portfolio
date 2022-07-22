@@ -50,7 +50,7 @@ const Project = () => {
       <div className="flex flex-row items-center  mt-10">
         {item?.tools.map((e, i) => {
           return (
-            <div className="flex flex-row items-center ml-10 ">
+            <div key={i} className="flex flex-row items-center ml-10 ">
               <div className="h-2 w-2 rounded-full mr-1 bg-gray-500"></div>
               <span className="text-gray-300 hover:text-blue-400">{e}</span>
             </div>
@@ -66,11 +66,11 @@ const Project = () => {
             fill="none"
           >
             <g
-              fill-rule="evenodd"
+              fillRule="evenodd"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               transform="translate(1 1)"
             >
               <path d="M15 10v6a2 2 0 01-2 2H2a2 2 0 01-2-2V5a2 2 0 012-2h6M12 0h6v6M7 11L18 0" />

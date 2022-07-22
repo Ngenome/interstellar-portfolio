@@ -69,6 +69,7 @@ const Navigation = ({ setActive, setActiveIndex, active, activeIndex }) => {
         {items.map((e, i) => {
           return (
             <div
+              key={i}
               onClick={() => {
                 setActive(e.name);
                 setActiveIndex(i);
