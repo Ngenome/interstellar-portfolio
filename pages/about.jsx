@@ -10,7 +10,7 @@ const ImageViewer = ({ images, title, description }) => {
     <div className="flex flex-row flex-nowrap mt-6  overflow-x-scroll max-w-screen  sm:w-[70vw]">
       {images.map((e, i) => {
         return (
-          <div className="group">
+          <div key={i} className="group">
             <img
               key={i}
               src={e.image}
