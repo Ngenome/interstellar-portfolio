@@ -26,28 +26,46 @@ const ImageViewer = ({ images, title, description }) => {
     </div>
   );
 };
-var Images = [
+const AppDevImages = [
   {
-    info: "Needs Mobile App Design  ",
-    image: "/needs_mockup.png",
+    info: "Dropp Management App",
+    image: "/dropp-cover.png",
   },
   {
-    info: "Needs Mobile App Design  ",
-    image: "/food_app.png",
+    info: "Repent Member Registration App",
+    image: "/Repent-App-Cover.png",
   },
 
   {
-    info: "Needs Mobile App Design  ",
-    image: "/NeedsDesign.png",
+    info: "Ribrad Laundry App ",
+    image: "/ribrad-cover.png",
+  },
+];
+const DesignImages = [
+  {
+    info: "Dropp Management App",
+    image: "/dropp-design.png",
   },
   {
-    info: "Needs Mobile App Design  ",
-    image: "/JipasTensail.png",
+    info: "Wera Services App",
+    image: "/wera-app.png",
+  },
+
+  {
+    info: "Bunisha Needs App ",
+    image: "/needsapp.jpg",
+  },
+];
+const WebDevImages = [
+  {
+    info: "Repent Backend",
+    image: "/repent-backend-1.png",
   },
   {
-    info: "Needs Mobile App Design  ",
-    image: "/dissolve_laptop.png",
+    info: "React Native Component Store",
+    image: "/react-native-component-store.png",
   },
+  ,
 ];
 const AppDev = () => {
   useEffect(() => {
@@ -89,7 +107,7 @@ const AppDev = () => {
         </span>
         <div className="flex flex-row mt-2 max-w-[100vw]">
           <ImageViewer
-            images={Images}
+            images={AppDevImages}
             title="Dissolve Chat app"
             description="Dissolve chat app is a chat application where you sign in with email and password and then you can chat , share photos , gifs, emojis with your friends"
           />
@@ -156,7 +174,7 @@ const WebDev = () => (
       </span>
       <div className="flex flex-row mt-2 max-w-[100vw]">
         <ImageViewer
-          images={Images}
+          images={WebDevImages}
           title="Dissolve Chat app"
           description="Dissolve chat app is a chat application where you sign in with email and password and then you can chat , share photos , gifs, emojis with your friends"
         />
@@ -185,7 +203,7 @@ const Design = () => (
       </span>
       <div className="flex flex-row mt-2 max-w-[100vw]">
         <ImageViewer
-          images={Images}
+          images={DesignImages}
           title="Dissolve Chat app"
           description="Dissolve chat app is a chat application where you sign in with email and password and then you can chat , share photos , gifs, emojis with your friends"
         />
