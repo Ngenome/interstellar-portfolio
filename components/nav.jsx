@@ -128,9 +128,9 @@ const NavComponent = ({ img, text, href, svg, active }) => {
           ) : (
             <Image
               src={img}
-              height={40}
-              width={40}
-              layout="responsive"
+              height={30}
+              width={30}
+              layout="fixed"
               className=" h-10 sm:h-5 w-10  object-contain "
             />
           )}{" "}

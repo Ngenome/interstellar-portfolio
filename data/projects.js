@@ -55,7 +55,7 @@ const projects = [
     descriptionTitle: "A design project from",
     description:
       "This  are designs for the dissolve management application, made with the figma design software",
-    link: "https://www.figma.com/file/7R41lIyqU68opMjqvy519L/Needs",
+    link: "https://turtle-v2-artifacts.s3.amazonaws.com/android/eb20a56f-02a2-432d-87fb-f563a166ca34-6b3ff7a6c0f44dfeb8b16e615f8df174.apk",
     tools: ["react-native", "Django"],
   },
   {
@@ -88,7 +88,7 @@ const projects = [
       pngmerger("ribrad-7"),
       pngmerger("ribrad-8"),
     ],
-    descriptionTitle: "Laudry & Shopping app development",
+    descriptionTitle: "Laundry & Shopping app development",
     description:
       "This is a laundry delivery services application for Ribrad Laudry. The App enables customers to have their cloths washed as well as have the chance of having them delivered to them at their locations. It also has a shopping where you can buy clothing",
     link: "",
