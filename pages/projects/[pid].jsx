@@ -57,7 +57,7 @@ const Project = () => {
           );
         })}
 
-        <a className="text-white ml-4" href={item?.link}>
+        {/* <a className="text-white ml-4" href={item?.link}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -76,7 +76,7 @@ const Project = () => {
               <path d="M15 10v6a2 2 0 01-2 2H2a2 2 0 01-2-2V5a2 2 0 012-2h6M12 0h6v6M7 11L18 0" />
             </g>
           </svg>
-        </a>
+        </a> */}
       </div>
       <div
         className="flex sm:flex-row flex-col w-[90vw] sm:overflow-x-scroll overflow-y-scroll

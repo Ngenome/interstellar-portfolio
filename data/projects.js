@@ -47,7 +47,6 @@ const projects = [
       pngmerger("repent-app-1"),
       pngmerger("repent-app-2"),
       pngmerger("repent-app-3"),
-      pngmerger("repent-app-4"),
       pngmerger("repent-app-5"),
       pngmerger("repent-app-6"),
       pngmerger("repent-app-7"),

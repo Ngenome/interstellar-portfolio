@@ -53,6 +53,12 @@ const skillItems = [
       " Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, delectus non eos tempora atque ducimus molestiae voluptates nesciunt ullam officiis reprehenderit nam dicta. Non corrupti ab fuga modi velit excepturi?",
   },
   {
+    name: "Typescript",
+    image: "/tech/typescript.png",
+    description:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, delectus non eos tempora atque ducimus molestiae voluptates nesciunt ullam officiis reprehenderit nam dicta. Non corrupti ab fuga modi velit excepturi?",
+  },
+  {
     name: "Git",
     image: "/tech/git.png",
     description:

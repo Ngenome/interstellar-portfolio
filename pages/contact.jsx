@@ -106,6 +106,7 @@ const Contact = () => {
   const [orderDate, setOrderDate] = useInputState("");
   const [vantaEffect, setVantaEffect] = useState(null);
   const vantaBG = useRef(null);
+  const [sent, setSent] = useState(false);
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -204,10 +205,19 @@ const Contact = () => {
             <input
               onChange={(e) => {
                 setEmail(e.target.value);
+                if (
+                  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+                    e.target.value
+                  )
+                ) {
+                  e.target.style.borderColor = "chartreuse";
+                } else {
+                  e.target.style.borderColor = "tomato";
+                }
               }}
               id="email"
               type="email"
-              className="h-10 w-[70vw] text-white px-2 border-2 border-sky-100  bg-blue-900 bg-opacity-20 rounded-md"
+              className="h-10 w-[70vw] text-white px-2 border-2   bg-blue-900 bg-opacity-20 rounded-md"
             />
           </div>
           <div className="flex flex-col mt-2">
@@ -223,18 +233,33 @@ const Contact = () => {
           <div className="flex flex-row justify-center mt-4">
             <div
               onClick={() => {
-                axios
-                  .post("http://stellarsendymail.herokuapp.com", {
-                    sender_email: email,
-                    subject: "this is a subject",
-                    message: message,
-                  })
-                  .then(function (response) {
-                    alert("sent the email successfully");
-                  })
-                  .catch(function (error) {
-                    alert("sorry an error occured");
-                  });
+                if (!sent) {
+                  if (message.length < 1) {
+                    alert("Enter a message");
+                  } else if (
+                    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                  ) {
+                    axios
+                      .post("https://stellarsendymail.herokuapp.com", {
+                        sender_email: email,
+                        subject: `
+                    Portfolio Contact form, from ${email}
+                    `,
+                        message: message,
+                      })
+                      .then(function (response) {
+                        setSent(true);
+                        alert("sent the email successfully");
+                      })
+                      .catch(function (error) {
+                        alert("sorry an error occured, try again later");
+                      });
+                  } else {
+                    alert("Please enter a valid email");
+                  }
+                } else {
+                  alert("You already sent an email");
+                }
               }}
               className="p-2 w-32 rounded-lg bg-cyan-400 flex justify-center items-center"
             >

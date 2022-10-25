@@ -14,7 +14,7 @@ const ImageViewer = ({ images, title, description }) => {
             <img
               key={i}
               src={`/projects/${e.image}`}
-              className="opacity-80 hover:opacity-100 transition duration-300 m-1 w-[300px] h-[200px]  sm:h-[40vh] sm:object-contain "
+              className="opacity-80 hover:opacity-100 transition duration-300 m-1 w-[300px] h-[200px]  sm:h-[40vh] object-contain "
             />
             {/* <span className=" opacity-0 group-hover:opacity-100 transition duration-300 group-hover:translate-y-10  group-hover:transition-all">
               {e.info}
