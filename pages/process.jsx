@@ -19,10 +19,7 @@ var items = [
     name: "Implementation",
     steps: [
       `  Implementation starts off with designing the application to get a mockup of how the real application will be, the various themes, colors , layout and the flow of the application, `,
-      `  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate in
-        voluptatum iusto distinctio magni ratione? Recusandae ducimus fugiat
-        quod, ex dignissimos vel ipsam tempora repellendus, veniam eos natus?
-        Ullam, dolore?`,
+      ` `,
       ,
     ],
     image: "/code_in_action.svg",
@@ -30,14 +27,8 @@ var items = [
   {
     name: "Testing and review",
     steps: [
-      `  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate in
-        voluptatum iusto distinctio magni ratione? Recusandae ducimus fugiat
-        quod, ex dignissimos vel ipsam tempora repellendus, veniam eos natus?
-        Ullam, dolore?`,
-      `  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate in
-        voluptatum iusto distinctio magni ratione? Recusandae ducimus fugiat
-        quod, ex dignissimos vel ipsam tempora repellendus, veniam eos natus?
-        Ullam, dolore?`,
+      ` Finally I test the application to see whether everything works , and I get from people to get Ideas on possible areas of correction`,
+      `  We then review the application and if all is well we head to the next stage`,
       ,
     ],
     image: "/review.svg",
