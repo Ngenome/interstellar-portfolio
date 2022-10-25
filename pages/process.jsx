@@ -37,7 +37,7 @@ var items = [
     name: "Deployment",
 
     steps: [
-      ` Deployment starts after the code is appropriately tested, approved for release, and sold or otherwise distributed into a production environment. This may involve installation, customization, testing, and possibly an extended period of evaluation. Software training and support are important, as the software is only effective if it is used correctly. Maintaining and enhancing software to cope with newly discovered faults or requirements can take substantial time and effort, as missed requirements may force a redesign of the software. [1]`,
+      ` Once all is done, and everything is approved to be working all right, we then put your application to Production`,
     ],
     image: "/deploy.svg",
   },
